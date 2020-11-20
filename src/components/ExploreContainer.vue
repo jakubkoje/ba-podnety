@@ -1,43 +1,86 @@
 <template>
-  <div id="container">
-    <strong>{{ name }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+	<div id="container">
+		<ion-card>
+			<img
+				src="https://www.odkazprestarostu.sk/image/w1280/public/alerts/85005/images/5e26d68f01282.jpg"
+			/>
+			<ion-card-header>
+				<ion-badge color="warning" class="mr-2">Ruzinov</ion-badge>
+				<ion-badge color="success">Vyriesene</ion-badge>
+				<ion-card-title
+					>Námestie SNP - osvetlenie - nedostatočné</ion-card-title
+				>
+			</ion-card-header>
+			<ion-card-content style="display: flex" class="ion-align-items-center">
+				<ion-label slot="start" class="flex1">Námestie SNP</ion-label>
+				<ion-buttons slot="end" class="flex2">
+					<ion-button>
+						<ion-icon
+							class="like-icon"
+							slot="icon-only"
+							:icon="thumbsUpOutline"
+							color="success"
+						></ion-icon>
+					</ion-button>
+					<ion-label>32</ion-label>
+				</ion-buttons></ion-card-content
+			>
+		</ion-card>
+	</div>
 </template>
 
 <script lang="ts">
+import {
+	IonCard,
+	IonCardContent,
+	IonCardTitle,
+	IonCardHeader,
+	IonBadge,
+	IonButtons,
+	IonButton,
+	IonIcon,
+	IonLabel,
+} from '@ionic/vue';
 
+import { thumbsUp, thumbsUpOutline } from 'ionicons/icons';
 export default {
-  name: 'ExploreContainer',
-  props: {
-    name: String
-  }
-}
+	name: 'ExploreContainer',
+	components: {
+		IonCard,
+		IonCardContent,
+		IonCardTitle,
+		IonCardHeader,
+		IonBadge,
+		IonButtons,
+		IonButton,
+		IonIcon,
+		IonLabel,
+	},
+	data() {
+		return {
+			thumbsUpOutline,
+			thumbsUp,
+		};
+	},
+};
 </script>
 
 <style scoped>
-#container {
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.mr-2 {
+	margin-right: 0.5rem;
 }
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-card-title {
+	margin-top: 0.8rem;
+	font-size: 1.5rem;
 }
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
-  margin: 0;
+.flex1 {
+	flex: 1;
+	height: 100%;
 }
-
-#container a {
-  text-decoration: none;
+.flex2 {
+	flex: 0.1;
+}
+like-icon {
+	color: var(--ion-color-success);
 }
 </style>
