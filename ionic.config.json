@@ -1,0 +1,7 @@
+{
+  "name": "BA-podnety",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
