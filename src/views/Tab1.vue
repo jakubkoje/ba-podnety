@@ -6,7 +6,7 @@
 			</ion-toolbar>
 		</ion-header>
 		<ion-content>
-			<ExploreContainer name="Tab 1 page" />
+			<Podnet name="Tab 1 page" />
 		</ion-content>
 	</ion-page>
 </template>
@@ -19,12 +19,12 @@ import {
 	IonTitle,
 	IonContent,
 } from '@ionic/vue';
-import ExploreContainer from '@/components/ExploreContainer.vue';
+import Podnet from '@/components/Podnet.vue';
 
 export default {
 	name: 'Tab1',
 	components: {
-		ExploreContainer,
+		Podnet,
 		IonHeader,
 		IonToolbar,
 		IonTitle,

@@ -3,6 +3,7 @@
 		<ion-card>
 			<img
 				src="https://www.odkazprestarostu.sk/image/w1280/public/alerts/85005/images/5e26d68f01282.jpg"
+				class="ion-padding-top ion-padding-horizontal"
 			/>
 			<ion-card-header>
 				<ion-badge color="warning" class="mr-2">Ruzinov</ion-badge>
@@ -14,22 +15,22 @@
 			<ion-card-content style="display: flex" class="ion-align-items-center">
 				<ion-label slot="start" class="flex1">Námestie SNP</ion-label>
 				<ion-buttons slot="end" class="flex2">
-					<ion-button>
+					<ion-button @click="like()">
 						<ion-icon
 							class="like-icon"
 							slot="icon-only"
-							:icon="thumbsUpOutline"
+							:icon="isLiked ? thumbsUp : thumbsUpOutline"
 							color="success"
 						></ion-icon>
 					</ion-button>
-					<ion-label>32</ion-label>
+					<ion-label>{{ likeCount }}</ion-label>
 				</ion-buttons></ion-card-content
 			>
 		</ion-card>
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 import {
 	IonCard,
 	IonCardContent,
@@ -58,9 +59,21 @@ export default {
 	},
 	data() {
 		return {
+			isLiked: false,
+			likeCount: 0,
 			thumbsUpOutline,
 			thumbsUp,
 		};
+	},
+	methods: {
+		like() {
+			this.isLiked = !this.isLiked;
+			if (this.isLiked) {
+				this.likeCount++;
+			} else {
+				this.likeCount--;
+			}
+		},
 	},
 };
 </script>
